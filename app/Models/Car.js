@@ -9,7 +9,7 @@ export default class Car {
     this.imgUrl = data.imgUrl;
   }
 
-  get Template() {
+  get ListTemplate() {
     return /* html */ `
      <div class="col-12 col-md-4 col-lg-3">
         <div class="card">

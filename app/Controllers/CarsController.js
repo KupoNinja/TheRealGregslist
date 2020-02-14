@@ -2,10 +2,10 @@ import CarsService from "../Services/CarsService.js";
 import store from "../store.js";
 
 //Private
-function _draw() {
+function _drawCarList() {
   let cars = store.State.cars;
   let template = "";
-  cars.forEach(car => (template += car.Template));
+  cars.forEach(car => (template += car.ListTemplate));
   document.getElementById("cars").innerHTML = template;
   console.log(cars);
 }
@@ -13,7 +13,7 @@ function _draw() {
 //Public
 export default class CarsController {
   constructor() {
-    store.subscribe("cars", _draw);
+    store.subscribe("cars", _drawCarList);
   }
 
   async getCars() {

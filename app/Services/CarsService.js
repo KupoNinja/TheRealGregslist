@@ -38,6 +38,7 @@ class CarsService {
 
     let i = store.State.cars.findIndex(c => c._id == newCar._id);
     if (i != -1) {
+      // newCar should be data.data but api is not returning the updated object
       store.State.cars.splice(i, 1, newCar);
       store.commit("cars", store.State.cars);
     }

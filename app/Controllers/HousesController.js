@@ -92,17 +92,49 @@ export default class HousesController {
                 // @ts-ignore
                 description: form.description.value
             }
-            // let id = form._id.value;
-            // if (id) {
-            //     houseData._id = id;
-            //     await HousesService.updateHouse(houseData);
-            // } else {
+            // @ts-ignore
+            let id = form._id.value;
+            if (id) {
+                houseData._id = id;
+                await HousesService.updateHouse(houseData);
+            } else {
                 await HousesService.createHouse(houseData);
-            // }
+            }
             // @ts-ignore
             form.reset();
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    async editHouse(id) {
+        _drawHouseForm();
+        let house = store.State.houses.find(h => h._id == id);
+        let form = document.getElementById("house-form");
+        // @ts-ignore
+        form.bedrooms.value = house.bedrooms;
+        // @ts-ignore
+        form.bathrooms.value = house.bathrooms;
+        // @ts-ignore
+        form.imgUrl.value = house.imgUrl;
+        // @ts-ignore
+        form.levels.value = house.levels;
+        // @ts-ignore
+        form.year.value = house.year;
+        // @ts-ignore
+        form.price.value = house.price;
+        // @ts-ignore
+        form.description.value = house.description
+        // @ts-ignore
+        form._id.value = house._id;
+    }
+
+    async updateHouse() {
+        try {
+            await HousesService.updateHouse();
+        } catch (error) {
+            console.log(error);
+            
         }
     }
 

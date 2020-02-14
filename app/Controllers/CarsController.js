@@ -101,6 +101,7 @@ export default class CarsController {
     }
   }
   async editCar(id) {
+    _drawCarForm();
     let car = store.State.cars.find(c => c._id == id);
     let form = document.getElementById("car-form");
     // @ts-ignore

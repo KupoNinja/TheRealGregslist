@@ -11,6 +11,21 @@ export default class House {
     }
 
     get ListTemplate() {
-        return this;
+        return /* html */ `
+     <div class="col-12 col-md-4 col-lg-3">
+        <div class="card">
+            <img src="${this.imgUrl}" class="card-img-top" alt="a car image">
+            <div class="card-body">
+                <div class="card-title">Rooms: ${this.bedrooms} Baths: ${this.bathrooms}</div>
+                <div class="card-subtitle">${this.price}</div>
+                <p class="card-text">${this.year}</p>
+                <p class="card-text">${this.levels}</p>
+                <p class="card-text">${this.description}</p>
+            </div>
+            <button class="btn btn-info" onclick="app.housesController.editHouses('${this._id}')">Edit</button>
+            <button class="btn btn-danger" onclick="app.housesController.deleteHouses('${this._id}')">Delete</button>
+        </div>
+     </div>
+    `;
     }
 }

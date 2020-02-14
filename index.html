@@ -14,8 +14,10 @@
     <title>Document</title>
   </head>
 
+  <!-- TODO Lowercase the name attributes... -->
   <body>
     <button onclick="app.carsController.getCars()">Cars</button>
+    <button onclick="app.housesController.getHouses()">Houses</button>
     <form id="car-form" onsubmit="app.carsController.createCar()">
       <input name="_id" type="text" class="d-none" disabled />
       <div class="form-group">

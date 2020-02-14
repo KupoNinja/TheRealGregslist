@@ -3,7 +3,8 @@ import Car from "./Models/Car.js";
 let _state = {
   activeCar: new Car({ title: "Value" }),
   /** @type {Car[]} */
-  cars: []
+  cars: [],
+  houses: []
 };
 
 /** Collection of listeners to be called based on keyed state changes
@@ -11,11 +12,11 @@ let _state = {
  */
 let _listeners = {
   activeCar: [],
-  cars: []
+  cars: [],
+  houses: []
 };
 
 //NOTE You should not need to change the code from this point down
-
 /**
  * Validates the property string is defined in both the state and the listeners
  * @param {string} prop

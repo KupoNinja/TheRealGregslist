@@ -73,7 +73,6 @@ export default class HousesController {
 
     async createHouse() {
         try {
-        
             event.preventDefault();
             let form = event.target;
             // @ts-ignore
@@ -104,6 +103,15 @@ export default class HousesController {
             form.reset();
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    async deleteHouse(id) {
+        try {
+            await HousesService.deleteHouse(id);
+        } catch (error) {
+            console.log(error);
+            
         }
     }
 }

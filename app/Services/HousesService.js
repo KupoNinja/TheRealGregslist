@@ -4,6 +4,16 @@ import House from "../Models/House.js";
 const _SANDBOX_URL = "http://bcw-sandbox.herokuapp.com/api/houses/";
 
 class HousesService {
+    async deleteHouse(id) {
+        let response = await fetch(_SANDBOX_URL + id, {
+            method: "DELETE"
+        });
+        let i = store.State.houses.findIndex(h => h._id == id);
+        if (i != -1) {
+            store.State.houses.splice(i, 1);
+            store.commit("houses", store.State.houses);
+        }
+    }
     async createHouse(houseData) {
         let response = await fetch(_SANDBOX_URL, {
             method: "POST",

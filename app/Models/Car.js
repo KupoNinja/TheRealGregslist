@@ -9,6 +9,43 @@ export default class Car {
     this.imgUrl = data.imgUrl;
   }
 
+  get FormTemplate() {
+    return /* html */ `
+      <form id="car-form" onsubmit="app.carsController.createCar()">
+        <input name="_id" type="text" class="d-none" disabled />
+        <div class="form-group">
+          <label for="make">Make:</label>
+          <input name="make" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="model">Model:</label>
+          <input name="model" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="year">Year:</label>
+          <input name="year" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input name="price" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            name="description"
+            type="text"
+            class="form-control"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="imgUrl">Image URL:</label>
+          <input name="imgUrl" type="text" class="form-control" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    `;
+  }
+
   get ListTemplate() {
     return /* html */ `
      <div class="col-12 col-md-4 col-lg-3">
@@ -23,6 +60,6 @@ export default class Car {
             <button class="btn btn-danger" onclick="app.carsController.deleteCar('${this._id}')">Delete</button>
         </div>
      </div>
-        `;
+    `;
   }
 }

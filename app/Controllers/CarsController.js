@@ -10,6 +10,10 @@ function _drawCarList() {
   console.log(cars);
 }
 
+// function _drawCarForm() {
+//   document.getElementById("form").innerHTML = 
+// }
+
 //Public
 export default class CarsController {
   constructor() {
@@ -30,17 +34,17 @@ export default class CarsController {
       let form = event.target;
       let carData = {
         // @ts-ignore
-        make: form.Make.value,
+        make: form.make.value,
         // @ts-ignore
-        model: form.Model.value,
+        model: form.model.value,
         // @ts-ignore
-        year: form.Year.value,
+        year: form.year.value,
         // @ts-ignore
-        price: form.Price.value,
+        price: form.price.value,
         // @ts-ignore
-        description: form.Description.value,
+        description: form.description.value,
         // @ts-ignore
-        imgUrl: form.ImageURL.value
+        imgUrl: form.imgUrl.value
       };
 
       // @ts-ignore
@@ -61,17 +65,17 @@ export default class CarsController {
     let car = store.State.cars.find(c => c._id == id);
     let form = document.getElementById("car-form");
     // @ts-ignore
-    form.Make.value = car.make;
+    form.make.value = car.make;
     // @ts-ignore
-    form.Model.value = car.model;
+    form.model.value = car.model;
     // @ts-ignore
-    form.Year.value = car.year;
+    form.year.value = car.year;
     // @ts-ignore
-    form.Price.value = car.price;
+    form.price.value = car.price;
     // @ts-ignore
-    form.Description.value = car.description;
+    form.description.value = car.description;
     // @ts-ignore
-    form.ImageURL.value = car.imgUrl;
+    form.imgUrl.value = car.imgUrl;
     // @ts-ignore
     form._id.value = car._id;
   }
